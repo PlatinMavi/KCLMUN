@@ -8,7 +8,7 @@ import './index.css';
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes >
         <Route path="/" element={<Layout />}>
           <Route index element={<Index />} />
           {/* <Route path="blogs" element={<Blogs />} />

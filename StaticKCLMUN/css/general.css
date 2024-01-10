@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+html,body{
+    overflow-x: hidden;
+    font-family: 'Fredoka', sans-serif;
+  }
+
+.text-prefix{
+    font-size: 3em;
+    font-weight: 100;
+    color: white;
+    text-shadow: 0 0 20px #48C8FF;
+}
+
+.floating1 {  
+    display: inline-block;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /* margin-left: 30px;
+    margin-top: 5px; */
+}
+
+.floating2 {  
+    display: inline-block;
+    animation-name: floating;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /* margin-left: 30px;
+    margin-top: 5px; */
+}
+
+.floating3 {  
+    display: inline-block;
+    animation-name: floating;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /* margin-left: 30px;
+    margin-top: 5px; */
+}
+ 
+@keyframes floating {
+    0% { transform: translatey(0px); }
+    50%  { transform: translatey(20px); }
+    100%   { transform: translatey(0px); }    
+}
+
