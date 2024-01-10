@@ -2,23 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bevan&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
 @font-face {
   font-family: "integralcf";
-  src: local("Fontspring-DEMO-integralcf-refular.otf") format("otf");
-}
-
-@font-face {
-  font-family: "integralcfextrabold";
-  src: local("Fontspring-DEMO-integralcf-extrabold.otf") format("otf");
+  src: local("INTEGRALCF-REGULAR.OTF") format("otf");
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
+  background-color: #1c1c1c;
 }
 
 @layer utilities {
@@ -40,11 +32,40 @@ body {
   font-family: "integralcf", sans-serif;
 }
 
-.intBold{
-  font-family: "integralcfextrabold", sans-serif;
+.kule{
+  background-image: url("./assets/kule.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20%;
 }
 
-.osf{
-  font-family: 'Oswald', sans-serif;
+.background{
+  background-image: url("./assets/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20%;
+
 }
 
+.mun{
+  background-image: url("./assets/mun.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* opacity:; */
+
+}
+
+.floating {  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  /* margin-left: 30px;
+  margin-top: 5px; */
+}
+
+@keyframes floating {
+  0% { transform: translatey(0px); }
+  50%  { transform: translatey(20px); }
+  100%   { transform: translatey(0px); }    
+}
