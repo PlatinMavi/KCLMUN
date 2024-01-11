@@ -2,6 +2,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/layout";
 import Index from "./pages/index";
+import About from "./pages/about";
+import NoPage from "./pages/nopage";
 import './index.css';
 
 
@@ -11,9 +13,8 @@ export default function App() {
       <Routes >
         <Route path="/" element={<Layout />}>
           <Route index element={<Index />} />
-          {/* <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
