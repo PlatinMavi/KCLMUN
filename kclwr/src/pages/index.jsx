@@ -1,50 +1,63 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
-
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(0);
+    const [showpopup, setShowPopup] = useState(false);
 
     function HandleTabClick(tab) {
-        const currentPage = page
-        setPage(tab)
+        const currentPage = page;
+        setPage(tab);
 
-        document.getElementById(currentPage).classList.remove("text-black")
-        document.getElementById(currentPage).classList.remove("bg-white")
-        document.getElementById(tab).classList.add("text-black")
-        document.getElementById(tab).classList.add("bg-white")
+        if (document.getElementById(currentPage)) {
+        document.getElementById(currentPage).classList.remove("text-black");
+        document.getElementById(currentPage).classList.remove("bg-white");
+        }
+
+        if (document.getElementById(tab)) {
+        document.getElementById(tab).classList.add("text-black");
+        document.getElementById(tab).classList.add("bg-white");
+        }
     }
 
     function HandleArrowClick() {
         const scrollTarget = document.getElementById("section2");
         if (scrollTarget) {
-            scrollTarget.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-                inline: "nearest",
-            });
+        scrollTarget.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+        });
         }
     }
 
     function GetCountdown() {
         var countDownDate = new Date("June 9, 2024 9:00:00").getTime();
         var x = setInterval(function () {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
 
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("Cdwn").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
+        if (document.getElementById("Cdwn")) {
+            document.getElementById("Cdwn").innerHTML =
+            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }
 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
+        if (distance < 0) {
+            clearInterval(x);
+            if (document.getElementById("demo")) {
+            document.getElementById("demo").innerHTML = "EXPIRED";
             }
-        }, 1000)
+        }
+        }, 1000);
+
+        return x; // return the interval ID
     }
 
     function calculateDaysToJune9th() {
@@ -59,17 +72,60 @@ export default function Index() {
 
     function updateCountdown() {
         const daysRemaining = calculateDaysToJune9th();
-        document.getElementById('countdown').innerHTML = daysRemaining;
+        if (document.getElementById("countdown")) {
+        document.getElementById("countdown").innerHTML = daysRemaining;
+        }
+    }
+
+    function HandlePopUp(val) {
+        setShowPopup(val);
+        if (val === true) {
+        if (document.getElementById("root")) {
+            document.getElementById("root").classList.add("overflow-y-hidden");
+            document.getElementById("root").classList.add("max-h-screen");
+        }
+        } else {
+        if (document.getElementById("root")) {
+            document.getElementById("root").classList.remove("overflow-y-hidden");
+            document.getElementById("root").classList.remove("max-h-screen");
+        }
+        }
     }
 
     useEffect(() => {
-        GetCountdown()
+        const countdownInterval = GetCountdown();
         updateCountdown();
-        setInterval(updateCountdown, 1000);
-    }, [])
+        HandlePopUp(true);
+
+        // Clear the interval when the component is unmounted
+        return () => {
+        clearInterval(countdownInterval);
+        };
+    }, []);
 
     return (
-        <div className="main int">
+        <div className="main int" id="main">
+            {showpopup &&(
+                <div className=" absolute w-screen h-screen text-white " id="popupbg">
+                    <div className="w-[450px] max-h-[600px]  mx-auto mt-36 rounded-xl p-8 bg-[#1c1c1c]" id="popup">
+                        <div className="overflow-y-scroll max-h-[500px]" id="popup">
+                            <h2 className="text-5xl font-bold text-center">Welcome Letter</h2>
+                            <hr className="w-48 text-white mx-auto my-4" />
+                            <p className="break-words">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
+                            </p>
+                        </div>
+                        <hr className="w-48 text-white mx-auto my-2" />
+                        <button onClick={()=>HandlePopUp(false)} className="rounded-xl ml-[155px] bg-black px-4 py-2">Close</button>
+                    </div>
+                    
+                </div>
+            )}
+            
             <div className="Jumbotron h-[calc(100vh-80px)] top-[5rem] relative">
 
                 <div className="background absolute h-[calc(100vh-80px)] w-screen"></div> {/* Background */}
@@ -111,7 +167,7 @@ export default function Index() {
                 </div>
                 <div className="grid grid-cols-2 my-12 container mx-auto ">
                     <div className="text-center int">
-                        <h2 className="text-5xl font-bold">Welcome Letter</h2>
+                        <h2 className="text-5xl font-bold">What Is Our Vision ?</h2>
                         <hr className="w-48 text-white mx-auto my-4" />
                         <p className="mx-auto w-[500px] break-words">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!

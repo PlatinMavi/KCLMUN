@@ -8,6 +8,7 @@ const Layout = () => {
                 <div className="container flex justify-between mx-auto">
                     <div className="mt-4 gap-x-12 flex font-bold">
                         <Link to={"/"} className="text-5xl font-extrabold">KCLMUN</Link>
+                        <Link className=" text-2xl mt-2" to={"/conferance"}>CONFERANCE</Link>
                         <Link className=" text-2xl mt-2" to={"/faq"}>FAQ</Link>
                         <Link className=" text-2xl mt-2" to={"/about"}>ABOUT</Link>
                         <Link className=" text-2xl mt-2" to={"/committes"}>COMMITTES</Link>

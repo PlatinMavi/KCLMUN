@@ -28,6 +28,18 @@ body {
       scrollbar-width: none;
       /* Firefox */
     }
+
+    #popup::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    #popup {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
   }
 }
 
@@ -79,4 +91,9 @@ body {
   100% {
     transform: translatey(0px);
   }
+}
+
+#popupbg {
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.788);
 }
