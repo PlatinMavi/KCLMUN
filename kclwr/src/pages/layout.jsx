@@ -4,7 +4,7 @@ import logobar from "../assets/logobar.png"
 const Layout = () => {
     return (
         <>
-            <nav className="w-screen fixed bg-[#1c1c1c] h-20 text-white z-50">
+            <nav className="w-screen fixed bg-[#1c1c1c] h-20 text-white z-50 border-b-2">
                 <div className="container flex justify-between mx-auto">
                     <div className="mt-4 gap-x-12 flex font-bold">
                         <Link to={"/"} className="text-5xl font-extrabold">KCLMUN</Link>

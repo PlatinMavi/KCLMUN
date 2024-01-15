@@ -167,7 +167,7 @@ export default function Index() {
                 </div>
                 <div className="grid grid-cols-2 my-12 container mx-auto ">
                     <div className="text-center int">
-                        <h2 className="text-5xl font-bold">What Is Our Vision ?</h2>
+                        <h2 className="text-5xl font-bold">Secretary Generals Letter</h2>
                         <hr className="w-48 text-white mx-auto my-4" />
                         <p className="mx-auto w-[500px] break-words">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
