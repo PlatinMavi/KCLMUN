@@ -101,3 +101,7 @@ body {
 /* #map{
   height: 180px;
 } */
+
+.bg-1{
+  background-image: url("./assets/mun.jpg");
+}

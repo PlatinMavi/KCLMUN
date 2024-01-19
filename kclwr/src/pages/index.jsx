@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+//  BURAYI ÇOK ELLEME YARRA YERİZ
+
 export default function Index() {
     const [page, setPage] = useState(0);
     const [showpopup, setShowPopup] = useState(false);
@@ -169,7 +171,7 @@ export default function Index() {
                     <div className="text-center int">
                         <h2 className="text-5xl font-bold">Secretary Generals Letter</h2>
                         <hr className="w-48 text-white mx-auto my-4" />
-                        <p className="mx-auto w-[500px] break-words">
+                        <p className="mx-auto w-[500px] text-left break-words">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam deserunt suscipit, quasi numquam perspiciatis minus perferendis dolor eveniet commodi? Ratione culpa enim doloribus. Ratione error nulla ad assumenda cupiditate quasi!

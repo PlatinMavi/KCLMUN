@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 import logobar from "../assets/logobar.png"
 
+// BURAYI ELLEME BURA NAVBAR VE FOOTER
+
 const Layout = () => {
     return (
         <>
@@ -15,7 +17,7 @@ const Layout = () => {
 
                     </div>
                     <div className="">
-                        <img src={logobar} alt="" srcset="" className="h-20" />
+                        <img src={logobar} alt="" srcset="" className="h-[78px]" />
                     </div>
                 </div>
 

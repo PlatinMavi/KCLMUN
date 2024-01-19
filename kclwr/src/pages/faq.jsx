@@ -6,6 +6,8 @@ import "leaflet/dist/images/marker-shadow.png";
 
 export default function Faq(){
 
+    // BU USE EFFECT SAYFA YERLEŞTİĞİ ANDA ÇALIŞIYO, İÇİNDE HARİTA TANIMLANIYO YANİ HARİTA YAPMAK İSTERSEN BUNU ÖRNEK AL (İD Sİ MAP OLAN Bİ DİV YAPMAN LAZIM (EN ALTTA))
+
     useEffect(()=>{
         const map = L.map("map").setView([40.761174294310536, 29.896006557671054], 15); // Set initial coordinates and zoom level
 
